@@ -227,6 +227,22 @@
       gap: 6px;
     }
 
+    .brand-link {
+      font-family: 'Fraunces', serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 6px 8px;
+      border-radius: 8px;
+      transition: color .2s var(--ease), background .2s var(--ease);
+    }
+
+    .brand-link:hover {
+      color: var(--ink);
+      background: rgba(0,0,0,0.02);
+    }
+
     nav.links {
       display: flex;
       gap: 36px;
@@ -564,29 +580,26 @@
     }
 
     .work-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      overflow: hidden;
+      display: block;
+      position: relative;
+      border-radius: 12px;
+      overflow: visible;
+      background: transparent;
       transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
-    }
-
-    .work-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px -16px rgba(28, 26, 22, 0.16);
-      border-color: rgba(28, 26, 22, 0.22);
     }
 
     .work-media {
       aspect-ratio: 4/3;
       overflow: hidden;
       background: var(--bg-deep);
+      border-radius: 12px 12px 0 0;
     }
 
     .work-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top; /* Ensures the header/top of the screenshot is visible */
       display: block;
       transition: transform .5s var(--ease);
     }
@@ -596,7 +609,57 @@
     }
 
     .work-body {
-      padding: 16px 18px 18px;
+      position: relative;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--card);
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 6px 18px rgba(28,26,22,0.04);
+    }
+
+    .work-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1;
+      padding-left: 4px;
+    }
+
+    .work-body .work-arrow {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      transition: transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .work-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(28,26,22,0.08);
+    }
+
+    .work-card:hover .work-body .work-arrow {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      transform: translateY(-50%) translateY(-4px) scale(1.03);
     }
 
     .work-title {
@@ -621,8 +684,8 @@
     }
 
     .work-arrow {
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       border: 1px solid var(--line);
       display: flex;
@@ -633,8 +696,8 @@
     }
 
     .work-arrow svg {
-      width: 17px;
-      height: 17px;
+      width: 15px;
+      height: 15px;
       color: var(--ink);
       transition: color .3s var(--ease);
     }
@@ -1093,7 +1156,10 @@
 
   <header>
     <div class="wrap">
-      <a href="index.html" class="brand">S.A</a>
+      <div class="brand">
+        <a class="brand-link" href="https://www.linkedin.com/in/shahazeem-ahmed/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a class="brand-link" href="https://www.behance.net/shahazeemahmed1" target="_blank" rel="noopener" aria-label="Behance">Behance</a>
+      </div>
       <nav class="links" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="project.html">Projects</a>
@@ -1119,149 +1185,136 @@
           <p>Everything I've shipped, learned from, or broken on purpose to understand better.</p>
         </div>
 
-        <div class="all-work-grid">
-          <article class="work-card">
+      
+         <div class="work-grid">
+          <a href="https://www.behance.net/gallery/232402639/Gamezon-E-Commerce-platform-for-Gaming-equipments" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
-                alt="Savy - Financial Management App" loading="lazy" width="600" height="450" />
+              <img src="image/1.jpg"
+                alt="Gamezon Casestudy" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Savy — FinTech App</h3>
-              <div class="work-tags"><span>FinTech</span><span>2024</span></div>
+              <h3 class="work-title">Gamezon Casestudy</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/232526157/Drivixo-Modern-Ride-Booking-Web-Design" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80"
-                alt="CareSync Healthcare Solution" loading="lazy" width="600" height="450" />
+              <img src="image/2.jpg"
+                alt="Cedar Health design system component library" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">CareSync — Healthcare</h3>
-              <div class="work-tags"><span>Health</span><span>2024</span></div>
+              <h3 class="work-title">Drivixo Web Design</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/241292223/RO-Water-E-Commerce-Platform" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
-                alt="Nomad Travel Booking" loading="lazy" width="600" height="450" />
+              <img src="image/4.jpg"
+                alt="Forge Analytics SaaS dashboard interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Nomad — Travel App</h3>
-              <div class="work-tags"><span>Travel</span><span>2023</span></div>
+              <h3 class="work-title">R.O Water E-Comm Platform</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/248067325/Techno-RO-Servicing" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80"
+              <img src="image/3.jpg"
                 alt="Loop Mobility ride-hailing mobile app interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Loop Mobility</h3>
-              <div class="work-tags"><span>Mobile App</span><span>2023</span></div>
+              <h3 class="work-title">Techno RO Servicing</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/241293573/OLX-Style-Marketplace-App" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80"
+              <img src="image/5.jpg"
                 alt="Pulse Fitness mobile app interface mockup" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Pulse Fitness</h3>
-              <div class="work-tags"><span>Health &amp; Fitness</span><span>2023</span></div>
+              <h3 class="work-title">OLX-Style Marketplace App</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/241365563/8-Ball-Pool-Game-Admin-Dashboard-UIUX-Design" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80"
+              <img src="image/6.jpg"
                 alt="Orbit Learning e-learning platform interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Orbit Learning</h3>
-              <div class="work-tags"><span>EdTech</span><span>2023</span></div>
+              <h3 class="work-title">8 Ball Pool Game & Admin</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/242766569/My-Portfolio" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=80"
+              <img src="image/7.jpg"
                 alt="Harbor Logistics dashboard interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Harbor Logistics</h3>
-              <div class="work-tags"><span>Logistics</span><span>2022</span></div>
+              <h3 class="work-title">My Portfolio</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/241158973/DukaanSe-Landing-Page" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&q=80"
+              <img src="image/8.jpg"
                 alt="Bloom Marketplace e-commerce app interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Bloom Marketplace</h3>
-              <div class="work-tags"><span>E-commerce</span><span>2022</span></div>
+              <h3 class="work-title">DukaanSe Landing Page</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
+        
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/233794103/Cannexa-Ai-Communication" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80"
-                alt="Aria Travel booking app interface mockup" loading="lazy" width="600" height="450" />
+              <img src="image/9.png" alt="Project 9" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Aria Travel</h3>
-              <div class="work-tags"><span>Travel</span><span>2022</span></div>
+              <h3 class="work-title">Cannexa Ai Communication</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/241293573/OLX-Style-Marketplace-App" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80"
-                alt="Vault Crypto wallet app interface mockup" loading="lazy" width="600" height="450" />
+              <img src="image/10.png" alt="Project 10" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Vault Crypto</h3>
-              <div class="work-tags"><span>FinTech</span><span>2021</span></div>
+              <h3 class="work-title">OLX-Style Marketplace App</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
-
-          <article class="work-card">
-            <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80"
-                alt="Sprout Notes productivity app interface" loading="lazy" width="600" height="450" />
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">Sprout Notes</h3>
-              <div class="work-tags"><span>Productivity</span><span>2021</span></div>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
-                alt="Civic Voting platform interface mockup" loading="lazy" width="600" height="450" />
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">Civic Voting</h3>
-              <div class="work-tags"><span>Gov Tech</span><span>2020</span></div>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=600&q=80"
-                alt="Kindred Social messaging app interface mockup" loading="lazy" width="600" height="450" />
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">Kindred Social</h3>
-              <div class="work-tags"><span>Social</span><span>2020</span></div>
-            </div>
-          </article>
+          </a>
         </div>
       </div>
     </section>

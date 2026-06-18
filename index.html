@@ -210,7 +210,18 @@
     }
 
     .work-card {
-      transition: transform .3s var(--ease);
+      display: block;
+      position: relative;
+      border-radius: 12px;
+      overflow: visible;
+      background: transparent;
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+
+    .work-media {
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      background: var(--bg-deep);
     }
 
     /* ===== NAV ===== */
@@ -236,6 +247,22 @@
       display: flex;
       align-items: baseline;
       gap: 6px;
+    }
+
+    .brand-link {
+      font-family: 'Fraunces', serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 6px 8px;
+      border-radius: 8px;
+      transition: color .2s var(--ease), background .2s var(--ease);
+    }
+
+    .brand-link:hover {
+      color: var(--ink);
+      background: rgba(0,0,0,0.02);
     }
 
     nav.links {
@@ -627,6 +654,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top;
       display: block;
       transition: transform .5s var(--ease);
     }
@@ -636,13 +664,57 @@
     }
 
     .work-body {
-      padding: 16px 18px 18px;
+      position: relative;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--card);
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 6px 18px rgba(28,26,22,0.04);
     }
 
     .work-title {
       font-family: 'Fraunces', serif;
-      font-size: 1.08rem;
-      line-height: 1.25;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1;
+      padding-left: 4px;
+    }
+
+    .work-body .work-arrow {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      transition: transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .work-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(28,26,22,0.08);
+    }
+
+    .work-card:hover .work-body .work-arrow {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      transform: translateY(-50%) translateY(-4px) scale(1.03);
     }
 
     .work-tags {
@@ -661,8 +733,8 @@
     }
 
     .work-arrow {
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       border: 1px solid var(--line);
       display: flex;
@@ -673,8 +745,8 @@
     }
 
     .work-arrow svg {
-      width: 17px;
-      height: 17px;
+      width: 15px;
+      height: 15px;
       color: var(--ink);
       transition: color .3s var(--ease);
     }
@@ -1109,7 +1181,10 @@
 
   <header id="site-header">
     <div class="wrap">
-      <a href="#main" class="brand">S.A</a>
+      <div class="brand">
+        <a class="brand-link" href="https://www.linkedin.com/in/shahazeem-ahmed/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a class="brand-link" href="https://www.behance.net/shahazeemahmed1" target="_blank" rel="noopener" aria-label="Behance">Behance</a>
+      </div>
       <nav class="links" aria-label="Primary">
         <a href="#heroSection">Home</a>
         <a href="#work">Work<sup>™</sup></a>
@@ -1230,89 +1305,113 @@
         </div>
 
         <div class="work-grid">
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/232402639/Gamezon-E-Commerce-platform-for-Gaming-equipments" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
-                alt="Nimbus Finance mobile banking app interface mockup" loading="lazy" width="600" height="450" />
+              <img src="image/1.jpg"
+                alt="Gamezon Casestudy" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Nimbus Finance</h3>
+              <h3 class="work-title">Gamezon Casestudy</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/232526157/Drivixo-Modern-Ride-Booking-Web-Design" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80"
+              <img src="image/2.jpg"
                 alt="Cedar Health design system component library" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Cedar Health</h3>
+              <h3 class="work-title">Drivixo Web Design</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/241292223/RO-Water-E-Commerce-Platform" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
+              <img src="image/4.jpg"
                 alt="Forge Analytics SaaS dashboard interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Forge Analytics</h3>
+              <h3 class="work-title">R.O Water E-Comm Platform</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/248067325/Techno-RO-Servicing" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80"
+              <img src="image/3.jpg"
                 alt="Loop Mobility ride-hailing mobile app interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Loop Mobility</h3>
+              <h3 class="work-title">Techno RO Servicing</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/241293573/OLX-Style-Marketplace-App" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80"
+              <img src="image/5.jpg"
                 alt="Pulse Fitness mobile app interface mockup" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Pulse Fitness</h3>
+              <h3 class="work-title">OLX-Style Marketplace App</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/241365563/8-Ball-Pool-Game-Admin-Dashboard-UIUX-Design" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80"
+              <img src="image/6.jpg"
                 alt="Orbit Learning e-learning platform interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Orbit Learning</h3>
+              <h3 class="work-title">8 Ball Pool Game & Admin</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/242766569/My-Portfolio" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=80"
+              <img src="image/7.jpg"
                 alt="Harbor Logistics dashboard interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Harbor Logistics</h3>
+              <h3 class="work-title">My Portfolio</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
 
-          <article class="work-card">
+          <a href="https://www.behance.net/gallery/241158973/DukaanSe-Landing-Page" target="_blank" class="work-card">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&q=80"
+              <img src="image/8.jpg"
                 alt="Bloom Marketplace e-commerce app interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Bloom Marketplace</h3>
+              <h3 class="work-title"></h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
-          </article>
+          </a>
         </div>
 
         <div class="work-footer">
-          <a href="portfolio\project.html" class="view-all-btn">
+          <a href="project.html" class="view-all-btn">
             View All Projects
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -1495,9 +1594,8 @@
       <div class="footer-bottom">
         <span>&copy; 2026 ShahAzeem Ahmed. All rights reserved.</span>
         <div class="socials">
-          <a href="#" aria-label="ShahAzeem Ahmed on LinkedIn">LinkedIn</a>
-          <a href="#" aria-label="ShahAzeem Ahmed on Dribbble">Dribbble</a>
-          <a href="#" aria-label="ShahAzeem Ahmed on Behance">Behance</a>
+          <a href="https://www.linkedin.com/in/shahazeem-ahmed/" aria-label="ShahAzeem Ahmed on LinkedIn">LinkedIn</a>
+          <a href="https://www.behance.net/shahazeemahmed1" aria-label="ShahAzeem Ahmed on Behance">Behance</a>
         </div>
       </div>
     </div>
