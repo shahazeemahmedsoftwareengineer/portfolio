@@ -1123,33 +1123,33 @@
           <article class="work-card">
             <div class="work-media">
               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
-                alt="Nimbus Finance mobile banking app interface mockup" loading="lazy" width="600" height="450" />
+                alt="Savy - Financial Management App" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Nimbus Finance</h3>
-              <div class="work-tags"><span>FinTech</span><span>2025</span></div>
+              <h3 class="work-title">Savy — FinTech App</h3>
+              <div class="work-tags"><span>FinTech</span><span>2024</span></div>
             </div>
           </article>
 
           <article class="work-card">
             <div class="work-media">
               <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80"
-                alt="Cedar Health design system component library" loading="lazy" width="600" height="450" />
+                alt="CareSync Healthcare Solution" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Cedar Health</h3>
-              <div class="work-tags"><span>Healthcare</span><span>2024</span></div>
+              <h3 class="work-title">CareSync — Healthcare</h3>
+              <div class="work-tags"><span>Health</span><span>2024</span></div>
             </div>
           </article>
 
           <article class="work-card">
             <div class="work-media">
               <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
-                alt="Forge Analytics SaaS dashboard interface" loading="lazy" width="600" height="450" />
+                alt="Nomad Travel Booking" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title">Forge Analytics</h3>
-              <div class="work-tags"><span>B2B SaaS</span><span>2024</span></div>
+              <h3 class="work-title">Nomad — Travel App</h3>
+              <div class="work-tags"><span>Travel</span><span>2023</span></div>
             </div>
           </article>
 
@@ -1276,7 +1276,7 @@
     </div>
   </footer>
   <script>
-    (function () {
+    // Staggered reveal using IntersectionObserver
     (function () {
       var cards = Array.from(document.querySelectorAll('.work-card'));
       if (!cards.length) return;
@@ -1292,11 +1292,14 @@
         });
       }, { rootMargin: '-10% 0px', threshold: 0.08 });
       cards.forEach(function (c) { io.observe(c); });
-    })(); // This closes the IntersectionObserver IIFE
+    })();
+  </script>
 
-    // The rest of your existing script content should follow here.
-    // I'm assuming the rest of the script block was intended to be within this main IIFE.
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
+  <script>
+    (function () {
       "use strict";
 
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1576,7 +1579,7 @@
         });
       });
 
-    })(); // This closes the main IIFE
+    })();
   </script>
 
 </body>
