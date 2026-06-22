@@ -777,6 +777,8 @@
       font-size: 0.95rem;
       font-weight: 500;
       min-height: 44px;
+      background: transparent;
+      cursor: pointer;
       transition: background .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
     }
 
@@ -797,16 +799,62 @@
       transform: translateX(4px);
     }
 
+    .view-all-btn.expanded svg {
+      transform: rotate(90deg);
+    }
 
+    .view-all-btn.expanded:hover svg {
+      transform: rotate(90deg) translateX(4px);
+    }
+
+    /* Extra projects - hidden by default */
+    .extra-projects {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.6s var(--ease), opacity 0.4s var(--ease), margin-top 0.4s var(--ease);
+    }
+
+    .extra-projects.expanded {
+      max-height: 2000px;
+      opacity: 1;
+      margin-top: 20px;
+    }
+
+    .extra-projects .work-card {
+      transform: translateY(30px);
+      opacity: 0;
+      transition: transform 0.5s var(--ease), opacity 0.5s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+    }
+
+    .extra-projects.expanded .work-card {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .extra-projects.expanded .work-card:nth-child(1) { transition-delay: 0.05s; }
+    .extra-projects.expanded .work-card:nth-child(2) { transition-delay: 0.1s; }
+    .extra-projects.expanded .work-card:nth-child(3) { transition-delay: 0.15s; }
+    .extra-projects.expanded .work-card:nth-child(4) { transition-delay: 0.2s; }
 
     @media (max-width:1080px) {
       .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .extra-projects {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width:560px) {
       .work-grid {
+        grid-template-columns: 1fr;
+      }
+      .extra-projects {
         grid-template-columns: 1fr;
       }
     }
@@ -1212,7 +1260,7 @@
     <section class="hero" aria-label="Introduction" id="heroSection">
       <div class="topo-bg" id="topoBg" aria-hidden="true"></div>
       <div class="wrap">
-        <div class="hero-eyebrow"><span class="dot"></span>INDEPENDENT UI/UX DESIGNER</div>
+        <div class="hero-eyebrow"><span class="dot"></span>UI/UX DESIGNER</div>
 
         <div class="hero-title-row">
           <h1 class="big">
@@ -1222,7 +1270,7 @@
             <span class="line-wrap"><span class="line-inner">AZEEM</span></span>
           </h1>
         </div>
-        <p class="hero-coords mono">( 2024 — 2026 )</p>
+        <p class="hero-coords mono">( 2025 — 2026 )</p>
 
         <div class="hero-side">
           <p class="calm">Calm interfaces<br>for ambitious products.</p>
@@ -1246,23 +1294,15 @@
             <circle cx="12" cy="12" r="4" />
           </svg> Design Systems <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
-          </svg></span>
-        <span>UI Design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          </svg> Design Thinking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
-          </svg> UX Research <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          </svg> Figma <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
-          </svg> Prototyping <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          </svg> User Journey <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
-          </svg> Design Systems <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          </svg> Wireframe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
-          </svg></span>
-        <span>UI Design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="4" />
-          </svg> UX Research <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="4" />
-          </svg> Prototyping <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="4" />
-          </svg> Design Systems <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          </svg> Usability Testing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
           </svg></span>
         <span>UI Design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1273,6 +1313,16 @@
             <circle cx="12" cy="12" r="4" />
           </svg> Design Systems <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
+          </svg> Design Thinking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Figma <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> User Journey <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Wireframe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Usability Testing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
           </svg></span>
         <span>UI Design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
@@ -1282,6 +1332,16 @@
             <circle cx="12" cy="12" r="4" />
           </svg> Design Systems <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
+          </svg> Design Thinking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Figma <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> User Journey <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Wireframe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Usability Testing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
           </svg></span>
         <span>UI Design <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
@@ -1290,6 +1350,16 @@
           </svg> Prototyping <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
           </svg> Design Systems <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Design Thinking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Figma <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> User Journey <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Wireframe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="4" />
+          </svg> Usability Testing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="4" />
           </svg></span>
       </div>
@@ -1305,7 +1375,7 @@
           <p>Real problems, calm solutions — every image shown up front, no guesswork.</p>
         </div>
 
-        <div class="work-grid">
+        <div class="work-grid" id="mainWorkGrid">
           <a href="https://www.behance.net/gallery/232402639/Gamezon-E-Commerce-platform-for-Gaming-equipments" target="_blank" class="work-card">
             <div class="work-media">
               <img src="image/1.jpg"
@@ -1403,7 +1473,34 @@
                 alt="Bloom Marketplace e-commerce app interface" loading="lazy" width="600" height="450" />
             </div>
             <div class="work-body">
-              <h3 class="work-title"></h3>
+              <h3 class="work-title">DukaanSe Landing Page</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Extra projects - hidden by default, shown when "View All Projects" is clicked -->
+        <div class="extra-projects" id="extraProjects">
+          <a href="https://www.behance.net/gallery/233794103/Cannexa-Ai-Communication" target="_blank" class="work-card">
+            <div class="work-media">
+              <img src="image/9.png" alt="Cannexa Ai Communication" loading="lazy" width="600" height="450" />
+            </div>
+            <div class="work-body">
+              <h3 class="work-title">Cannexa Ai Communication</h3>
+              <div class="work-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.behance.net/gallery/241293573/OLX-Style-Marketplace-App" target="_blank" class="work-card">
+            <div class="work-media">
+              <img src="image/10.png" alt="OLX-Style Marketplace App" loading="lazy" width="600" height="450" />
+            </div>
+            <div class="work-body">
+              <h3 class="work-title">OLX-Style Marketplace App</h3>
               <div class="work-arrow" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
@@ -1412,12 +1509,12 @@
         </div>
 
         <div class="work-footer">
-          <a href="project.html" class="view-all-btn">
-            View All Projects
+          <button type="button" class="view-all-btn" id="viewAllBtn" aria-expanded="false">
+            <span id="viewAllBtnText">View All Projects</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -1610,6 +1707,99 @@
       "use strict";
 
       var isCoarse = window.matchMedia('(hover: none)').matches || window.innerWidth < 880;
+
+      /* ---------- View All Projects Toggle & Auto-Collapse ---------- */
+      (function setupViewAllProjects() {
+        var viewAllBtn = document.getElementById('viewAllBtn');
+        var viewAllBtnText = document.getElementById('viewAllBtnText');
+        var extraProjects = document.getElementById('extraProjects');
+        var workSection = document.getElementById('work');
+        var aboutSection = document.getElementById('about');
+        
+        if (!viewAllBtn || !extraProjects) return;
+        
+        var isExpanded = false;
+        var scrollObserver = null;
+        
+        function expandProjects() {
+          isExpanded = true;
+          extraProjects.classList.add('expanded');
+          viewAllBtn.classList.add('expanded');
+          viewAllBtn.setAttribute('aria-expanded', 'true');
+          viewAllBtnText.textContent = 'Show Less';
+          
+          // Start observing for auto-collapse
+          startScrollObserver();
+        }
+        
+        function collapseProjects() {
+          isExpanded = false;
+          extraProjects.classList.remove('expanded');
+          viewAllBtn.classList.remove('expanded');
+          viewAllBtn.setAttribute('aria-expanded', 'false');
+          viewAllBtnText.textContent = 'View All Projects';
+          
+          // Stop observing
+          stopScrollObserver();
+        }
+        
+        function startScrollObserver() {
+          if (scrollObserver) return;
+          
+          // Create an observer that watches when the about section comes into view
+          scrollObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              // When about section is 30% visible, collapse the extra projects
+              if (entry.isIntersecting && isExpanded) {
+                collapseProjects();
+                
+                // Smoothly scroll back to work section top if user has scrolled past
+                var workRect = workSection.getBoundingClientRect();
+                if (workRect.bottom < 0) {
+                  // User has scrolled past work section, scroll back to it
+                  var headerHeight = document.getElementById('site-header').offsetHeight || 80;
+                  var targetTop = workSection.offsetTop - headerHeight - 20;
+                  window.scrollTo({ top: targetTop, behavior: 'smooth' });
+                }
+              }
+            });
+          }, {
+            rootMargin: '-20% 0px -50% 0px',
+            threshold: 0.1
+          });
+          
+          if (aboutSection) {
+            scrollObserver.observe(aboutSection);
+          }
+        }
+        
+        function stopScrollObserver() {
+          if (scrollObserver) {
+            scrollObserver.disconnect();
+            scrollObserver = null;
+          }
+        }
+        
+        viewAllBtn.addEventListener('click', function() {
+          if (isExpanded) {
+            collapseProjects();
+          } else {
+            expandProjects();
+            
+            // Scroll to show the extra projects nicely
+            setTimeout(function() {
+              var extraRect = extraProjects.getBoundingClientRect();
+              var headerHeight = document.getElementById('site-header').offsetHeight || 80;
+              
+              // Only scroll if the extra projects are not fully visible
+              if (extraRect.top < headerHeight || extraRect.bottom > window.innerHeight) {
+                var targetTop = extraProjects.offsetTop - headerHeight - 40;
+                window.scrollTo({ top: targetTop, behavior: 'smooth' });
+              }
+            }, 100);
+          }
+        });
+      })();
 
       /* ---------- Topographic contour background (SVG, generated) ---------- */
       /* Lives only inside the hero. Contour groups shift subtly toward the
@@ -1828,7 +2018,7 @@
           });
         });
 
-        gsap.utils.toArray('.work-card').forEach(function (el, i) {
+        gsap.utils.toArray('#mainWorkGrid .work-card').forEach(function (el, i) {
           gsap.fromTo(el, { opacity: 0, y: 40 }, {
             opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: i * 0.06,
             scrollTrigger: { trigger: el, start: 'top 90%' }
